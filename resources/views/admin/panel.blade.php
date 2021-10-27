@@ -15,16 +15,10 @@
         <div class="col-md-8">
             <div class="list-group">
                 <a class="list-group-item list-group-item-action active">Panel</a>
-                <a href="#" class="list-group-item list-group-item-action">Lista Wypożyczeń</a>
-                <a href="{{ route('admin.books') }}" class="list-group-item list-group-item-action">Lista Książek</a>
-                <a href="#" class="list-group-item list-group-item-action">Lista Autorów</a>
-                <a href="#" class="list-group-item list-group-item-action">Lista Kategorii</a>
-                <a href="#" class="list-group-item list-group-item-action">Dodawanie Książki</a>
-                <a href="#" class="list-group-item list-group-item-action">Dodawanie Autora</a>
-                <a href="#" class="list-group-item list-group-item-action">Dodawanie Kategorii</a>
-                <a href="#" class="list-group-item list-group-item-action">Usuwanie Książki</a>
-                <a href="#" class="list-group-item list-group-item-action">Usuwanie Autora</a>
-                <a href="#" class="list-group-item list-group-item-action">Usuwanie Kategorii</a>
+                <a href="{{ route('admin.borrows') }}" class="list-group-item list-group-item-action">Lista Wypożyczeń</a>
+                <a href="{{ route('admin.books') }}" class="list-group-item list-group-item-action">Książki</a>
+                <a href="{{ route('admin.authors') }}" class="list-group-item list-group-item-action">Autorzy</a>
+                <a href="{{ route('admin.categories') }}" class="list-group-item list-group-item-action">Kategorie</a>
               </div>
         </div>
     </div>

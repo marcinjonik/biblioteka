@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     use HasFactory;
-    public function book(){
+    public function author_books(){
         return $this->hasMany('App\Models\Book');
     }
 }
