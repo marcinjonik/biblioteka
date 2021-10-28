@@ -16,6 +16,7 @@
             <div class="list-group">
                 <a class="list-group-item list-group-item-action active">Panel</a>
                 <a href="{{ route('admin.borrows') }}" class="list-group-item list-group-item-action">Lista Wypożyczeń</a>
+                <a href="{{ route('admin.users') }}" class="list-group-item list-group-item-action">Lista użytkowników</a>
                 <a href="{{ route('admin.books') }}" class="list-group-item list-group-item-action">Książki</a>
                 <a href="{{ route('admin.authors') }}" class="list-group-item list-group-item-action">Autorzy</a>
                 <a href="{{ route('admin.categories') }}" class="list-group-item list-group-item-action">Kategorie</a>

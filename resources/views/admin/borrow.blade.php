@@ -33,7 +33,7 @@
                         <td>{{$row->book_name}}</td>
                         <td>{{$row->borrow_date}}</td>
                         <td>{{$row->return_date}}</td>
-                        <td><a href="{{ route('borrows.edit', ['id' => $row->id]) }}" class="btn btn-success">Zatwierdz zwrot</a>
+                        <td><a href="{{ route('borrows.edit', ['id' => $row->id]) }}" class="btn btn-success">Zatwierdz zwrot</a></td>
                     </tr>
                     @endforeach
                 </tbody>

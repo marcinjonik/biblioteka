@@ -57,6 +57,12 @@ class HomeController extends Controller
 
     public function admin_books_save(Request $request)
     {
+        $request->validate([
+                'inputName'=> 'required|min:3',
+                'inputAutorID'=> 'required',
+                'inputCategoryID'=> 'required'
+        ]);
+
         $book = new Book();
 
         $book->name = $request->inputName;
@@ -81,6 +87,11 @@ class HomeController extends Controller
     }
 
     public function admin_books_update($id, Request $request){
+        $request->validate([
+            'inputName'=> 'required|min:3',
+            'inputAutorID'=> 'required',
+            'inputCategoryID'=> 'required'
+    ]);
         $book = Book::find($id);
 
         $book->name = $request->inputName;
@@ -112,6 +123,11 @@ class HomeController extends Controller
 
     public function admin_authors_save(Request $request)
     {
+        $request->validate([
+            'inputFirstName'=> 'required|min:3',
+            'inputLastName'=> 'required|min:3',
+        ]);
+
         $author = new Author();
 
         $author->first_name = $request->inputFirstName;
@@ -129,6 +145,11 @@ class HomeController extends Controller
     }
 
     public function admin_authors_update($id, Request $request){
+        $request->validate([
+            'inputFirstName'=> 'required|min:3',
+            'inputLastName'=> 'required|min:3',
+        ]);
+
         $author = Author::find($id);
 
         $author->first_name = $request->inputFirstName;
@@ -156,6 +177,10 @@ class HomeController extends Controller
 
     public function admin_categories_save(Request $request)
     {
+        $request->validate([
+            'inputName'=> 'required|min:3',
+        ]);
+
         $category = new Category();
 
         $category->name = $request->inputName;
@@ -172,6 +197,10 @@ class HomeController extends Controller
     }
 
     public function admin_categories_update($id, Request $request){
+        $request->validate([
+            'inputName'=> 'required|min:3',
+        ]);
+
         $category = Category::find($id);
 
         $category->name = $request->inputName;
@@ -206,6 +235,12 @@ class HomeController extends Controller
     }
 
     public function admin_borrows_update($id, Request $request){
+        $request->validate([
+            'inputBorrowDate'=> 'required',
+            'nputReturnDate'=> 'required',
+        ]);
+
+
         $borrow = Borrow::find($id);
         $id=$borrow->book_id;
         $book = Book::find($id);
@@ -268,5 +303,26 @@ class HomeController extends Controller
             ->get(['borrows.id', 'books.name as book_name', 'borrows.borrow_date', 'borrows.return_date']);
 
         return view('user.borrows', ['borrow' => $borrows]);
+    }
+
+    public function admin_users()
+    {
+        $user = User::all();
+
+        return view('admin.user', ['user' => $user]);
+    }
+
+    public function admin_users_edit($id, $usertype){
+        $user = User::find($id);
+        if($usertype == 'admin'){
+            $user->usertype = '';
+        }
+        elseif($usertype == 'user'){
+            $user->usertype = 'admin';
+        }
+
+        $user->save();
+
+        return view('admin.panel', ['user' => $user ]);
     }
 }

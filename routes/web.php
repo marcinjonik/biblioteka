@@ -46,6 +46,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/panel/borrows/edit/{id}', [App\Http\Controllers\HomeController::class, 'admin_borrows_edit'])->name('borrows.edit');
     Route::put('/admin/panel/borrows/update/{id}', [App\Http\Controllers\HomeController::class, 'admin_borrows_update'])->name('borrows.update');
 
+    Route::get('/admin/panel/users', [App\Http\Controllers\HomeController::class, 'admin_users'])->name('admin.users');
+    Route::get('/admin/panel/borrows/edit/{id}/{usertype}', [App\Http\Controllers\HomeController::class, 'admin_users_edit'])->name('users.edit');
 });
 
 
